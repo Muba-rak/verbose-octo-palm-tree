@@ -1,3 +1,5 @@
+// _id
+// tag === title
 const goals = [
   {
     id: 1,

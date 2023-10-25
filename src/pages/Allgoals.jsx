@@ -7,16 +7,21 @@ import { useFetch } from "../Hooks/useFetch";
 import Empty from "../components/Empty";
 import goals from "../data/goals";
 const Allgoals = () => {
-  const Goals = goals;
+  const {
+    isLoading,
+    data: { goals: Goals },
+  } = useFetch("http://localhost:5000/api/goals");
 
   return (
     <div className="container pb-3">
       <GoalHeader heading="All Goals" />
+      {isLoading && <Loading />}
       <div>
         <div>
-          {Goals.map((g) => {
-            return <Goal key={g.id} {...g} />;
-          })}
+          {Goals &&
+            Goals.map((g) => {
+              return <Goal key={g._id} {...g} />;
+            })}
         </div>
       </div>
     </div>

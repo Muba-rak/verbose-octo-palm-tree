@@ -4,13 +4,41 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Create = () => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:5000/api/goals", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ title, description }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Goal has been created");
+      } else {
+        toast.error("Error creating a goal, try again");
+      }
+      setTitle("");
+      setDescription("");
+    } catch (error) {
+      console.log(error);
+    }
+
+    // send users input to the server as a post request
+  };
+
   return (
     <div className="container d-flex justify-content-between align-items-center mt-3 pb-3 gap-lg-2">
       <div className="main-form py-5 px-1 ps-lg-2 ps-xl-3 pe-xl-3 rounded-2">
         <ToastContainer />
-        <form className="create-form">
+        <form className="create-form" onSubmit={handleFormSubmit}>
           <div className="mt-2">
             <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               type="text"
               placeholder="Goal Title"
               className="bg-transparent"
@@ -18,6 +46,8 @@ const Create = () => {
           </div>
           <div className="mt-5">
             <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               name=""
               id=""
               cols="30"

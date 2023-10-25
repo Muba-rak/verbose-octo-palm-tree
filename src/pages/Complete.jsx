@@ -7,11 +7,16 @@ import { useFetch } from "../Hooks/useFetch";
 import Empty from "../components/Empty";
 
 const Complete = () => {
-  const Goals = goals.filter((g) => g.progress === 100);
+  const {
+    isLoading,
+    data: { goals },
+  } = useFetch("http://localhost:5000/api/goals");
+  const Goals = isLoading ? [] : goals.filter((g) => g.progress === 100);
 
   return (
     <div className="container mt-2">
       <GoalHeader heading="Completed" />
+      {isLoading && <Loading />}
       <div>
         {Goals && Goals.length < 1 ? (
           <Empty />
