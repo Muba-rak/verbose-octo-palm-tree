@@ -5,7 +5,9 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Homepage = () => {
   const notify = () => {
-    toast.success("You are signed in, Welcome to Goal On.");
+    toast.success(
+      "You are signed in, Welcome to Goal On. Your personal Goal Manager"
+    );
   };
   notify();
   return (
