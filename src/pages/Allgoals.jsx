@@ -12,6 +12,10 @@ const Allgoals = () => {
     data: { goals: Goals },
   } = useFetch("http://localhost:5000/api/goals");
 
+  if (!isLoading && Goals.length < 1) {
+    return <Empty />;
+  }
+
   return (
     <div className="container pb-3">
       <GoalHeader heading="All Goals" />
