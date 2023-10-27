@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import goals from "../data/goals";
+import React from "react";
 import Completed from "../components/Completed";
 import GoalHeader from "../components/GoalHeader";
 import Loading from "../components/Loading";

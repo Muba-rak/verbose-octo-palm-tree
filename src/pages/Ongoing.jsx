@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Goal from "../components/Goal";
-import goals from "../data/goals";
+
 import GoalHeader from "../components/GoalHeader";
 import Loading from "../components/Loading";
 import { useFetch } from "../Hooks/useFetch";
@@ -11,7 +11,7 @@ const Ongoing = () => {
     isLoading,
     data: { goals },
   } = useFetch("http://localhost:5000/api/goals");
-  // condition ? first action : second action
+
   const Goals = isLoading ? [] : goals.filter((g) => g.progress < 100);
 
   return (

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import GoalHeader from "../components/GoalHeader";
 
 import Goal from "../components/Goal";
 import Loading from "../components/Loading";
 import { useFetch } from "../Hooks/useFetch";
 import Empty from "../components/Empty";
-import goals from "../data/goals";
 const Allgoals = () => {
   const {
     isLoading,

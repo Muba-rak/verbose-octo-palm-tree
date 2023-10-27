@@ -8,7 +8,7 @@ const Loading = () => {
       style={{ height: `calc(100vh - 165px)` }}
     >
       <RotatingLines
-        strokeColor="grey"
+        strokeColor="#0585CD"
         strokeWidth="5"
         animationDuration="0.75"
         width="200"

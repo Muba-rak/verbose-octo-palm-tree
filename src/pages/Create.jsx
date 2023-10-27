@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import step from "../assets/amico.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const redirect = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +21,8 @@ const Create = () => {
       const data = await res.json();
       if (data.success) {
         toast.success("Goal has been created");
+        //navigate to ongoing
+        redirect("/ongoing");
       } else {
         toast.error("Error creating a goal, try again");
       }

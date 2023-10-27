@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import bro from "../assets/bro.png";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
 const Homepage = () => {
   const notify = () => {
-    toast.success(
-      "You are signed in, Welcome to Goal On. Your personal Goal Manager"
-    );
+    toast.success("Welcome to Goal On. Your personal Goal Manager");
   };
-  notify();
+  useEffect(() => {
+    notify();
+  }, []);
   return (
     <div className="container d-block d-lg-flex justify-content-lg-between align-items-lg-center gap-2 mt-5 pb-4">
       <Toaster></Toaster>
@@ -21,15 +21,18 @@ const Homepage = () => {
           Improve Productivity By Managing{" "}
           <span className="blue-text">Your Goals</span>{" "}
         </h2>
-        <p className="mt-4">
-          Lorem ipsum dolor sit amet consectetur. Ut nisl nisl cursus massa sed.
-          Turpis ac aliquet lacinia justo turpis amet at arcu. Diam vulputate
-          suspendisse aliquam enim sagittis cursiodio ultrices. Condimentum
-          lacus nunc rhoncus massa. Tortorstiu ultricies neque aliquam sit non.
-          Diam vehicula dignissimepei pellentesque eros vitae. Viverra in vitae
-          nunc lorem eget lciou imperdiet tortor. Ac mauris vel non amet eget
-          egestas inoriou pellentesque commodo amet. Facilisi sed ut nisi
-          pellentesque diam egestas et turpis donor amet.
+        <p className="mt-4 lh-base ">
+          Managing one's goals is a critical aspect of personal and professional
+          growth. It involves setting clear, specific objectives, creating a
+          roadmap to achieve them, and monitoring progress along the way. To
+          effectively manage goals, it's essential to prioritize and break them
+          down into smaller, actionable steps. Regularly reviewing and adjusting
+          these goals keeps them relevant and achievable.
+        </p>
+        <p className="mt-2 lh-base">
+          {" "}
+          <span className="blue-text fw-bold ">Goal-On</span> is a personal goal
+          manager that helps you do the aforementioned
         </p>
         <div className="d-flex align-items-center gap-2">
           <Link to="/all" className="text-decoration-none">
