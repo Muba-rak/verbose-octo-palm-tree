@@ -21,7 +21,7 @@ const Complete = () => {
           <Empty />
         ) : (
           Goals.map((g) => {
-            return <Completed key={g.id} {...g} />;
+            return <Completed key={g._id} {...g} />;
           })
         )}
       </div>
