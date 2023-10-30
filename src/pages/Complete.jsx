@@ -12,20 +12,26 @@ const Complete = () => {
     data: { goals },
     isError,
   } = useFetch("http://localhost:5000/api/goals");
-  const Goals = isLoading ? [] : goals.filter((g) => g.progress === 100);
+  const Goals =
+    isLoading || isError ? null : goals.filter((g) => g.progress === 100);
+
+  if (!isLoading && isError) {
+    return <ErrorFetch />;
+  }
+
+  if (!isLoading && Goals.length < 1) {
+    return <Empty />;
+  }
 
   return (
     <div className="container mt-2">
       <GoalHeader heading="Completed" />
       {isLoading && <Loading />}
       <div>
-        {Goals && Goals.length < 1 ? (
-          <Empty />
-        ) : (
+        {Goals &&
           Goals.map((g) => {
             return <Completed key={g._id} {...g} />;
-          })
-        )}
+          })}
       </div>
     </div>
   );
