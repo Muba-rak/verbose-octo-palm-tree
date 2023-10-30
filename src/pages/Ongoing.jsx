@@ -10,6 +10,7 @@ const Ongoing = () => {
   const {
     isLoading,
     data: { goals },
+    isError,
   } = useFetch("http://localhost:5000/api/goals");
 
   const Goals = isLoading ? [] : goals.filter((g) => g.progress < 100);

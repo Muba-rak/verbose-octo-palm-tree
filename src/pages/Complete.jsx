@@ -4,11 +4,13 @@ import GoalHeader from "../components/GoalHeader";
 import Loading from "../components/Loading";
 import { useFetch } from "../Hooks/useFetch";
 import Empty from "../components/Empty";
+import ErrorFetch from "../components/ErrorFetch";
 
 const Complete = () => {
   const {
     isLoading,
     data: { goals },
+    isError,
   } = useFetch("http://localhost:5000/api/goals");
   const Goals = isLoading ? [] : goals.filter((g) => g.progress === 100);
 

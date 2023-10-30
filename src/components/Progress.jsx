@@ -1,5 +1,3 @@
-import React from "react";
-
 const Progress = ({ num }) => {
   return (
     <div className="parent-container">

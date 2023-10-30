@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import bro from "../assets/bro.png";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
