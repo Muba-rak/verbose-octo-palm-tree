@@ -1,4 +1,3 @@
-import React from "react";
 import Completed from "../components/Completed";
 import GoalHeader from "../components/GoalHeader";
 import Loading from "../components/Loading";

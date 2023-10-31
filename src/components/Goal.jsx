@@ -1,4 +1,3 @@
-import React from "react";
 import Progress from "./Progress";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdOutlineModeEditOutline } from "react-icons/md";

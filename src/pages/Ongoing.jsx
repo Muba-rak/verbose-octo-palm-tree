@@ -1,6 +1,4 @@
-import React from "react";
 import Goal from "../components/Goal";
-
 import GoalHeader from "../components/GoalHeader";
 import Loading from "../components/Loading";
 import { useFetch } from "../Hooks/useFetch";
